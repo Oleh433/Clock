@@ -7,9 +7,9 @@ namespace Lab7Ex2
         const int timePatch = -15;
         int seconds = 0;
 
-        int realSeconds = DateTime.Now.Second + timePatch;
+        int realSeconds = DateTime.Now.Second + timePatch + 1;
         int realMinutes = DateTime.Now.Minute + timePatch;
-        int realHours = DateTime.Now.Hour + timePatch;
+        int realHours = DateTime.Now.Hour - 3;
 
         public Form1()
         {
@@ -24,8 +24,8 @@ namespace Lab7Ex2
             Graphics g = CreateGraphics();
             
             int angle = (seconds + realSeconds) * 6 % 360;
-            int minAngle = (seconds / 60 + realMinutes) * 6;
-            int hourAngle = (seconds / 360 + realHours) * 30;
+            int minAngle = ((seconds + realSeconds + 15) / 60 + realMinutes) * 6;
+            int hourAngle = ((seconds + realSeconds + 15 + (realMinutes + 15) * 60) / 3600 + realHours) * 30;
 
 
             g.Clear(Color.White);
